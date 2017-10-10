@@ -5,14 +5,39 @@
     android:layout_width="match_parent"
     android:id="@+id/drawerLayout"
 
-    android:layout_height="120dp"
+    android:layout_height="match_parent"
     tools:context="com.example.miki.myapplication.MainActivity">
 
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"></android.support.v4.view.ViewPager>
+
+    </RelativeLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
