@@ -29,11 +29,6 @@
         android:layout_gravity="start"
         ></android.support.design.widget.NavigationView>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/android" />
 
 
 </android.support.v4.widget.DrawerLayout>
