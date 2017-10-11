@@ -13,9 +13,15 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,12 +36,43 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout sliderDotspanel;
     private int dotscount;
     private ImageView[] dots;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        int x = viewPager.getWidth();
+
+
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+        int width = displayMetrics.widthPixels;
+        int height = width * 8/16;
+
+        ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
+
+        ViewGroup.LayoutParams params1 = vp.getLayoutParams();
+        params1.height = height;
+        vp.setLayoutParams(params1);
+
+
+
+
+
+
+
+
+
 
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
 
@@ -106,7 +143,8 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
-        int x =10;
+
+
 
 
 
@@ -132,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+
 
        @Override
     public boolean onOptionsItemSelected(MenuItem item){
