@@ -17,6 +17,9 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,12 +104,33 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
 
 
 
 
        }
+
+    public class MyTimerTask extends TimerTask{
+
+        @Override
+        public void run() {
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(viewPager.getCurrentItem() == 0){
+                        viewPager.setCurrentItem(1);
+                    }
+                    else if (viewPager.getCurrentItem() ==1){
+                        viewPager.setCurrentItem(2);
+                    } else {
+                        viewPager.setCurrentItem(0);
+                    }
+                }
+            });
+        }
+    }
 
        @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -118,3 +142,5 @@ public class MainActivity extends AppCompatActivity {
        }
 
 }
+
+
