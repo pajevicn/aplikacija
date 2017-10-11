@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
+        int x =10;
 
 
 
